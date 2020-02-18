@@ -19,10 +19,12 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test-all": "react-scripts test --watchAll=false",
+    "lint": "eslint --ext .ts --ext .tsx .",
+    "validate": "yarn tsc && yarn lint && yarn test-all",
+    "validate-fix": "yarn tsc && yarn lint --fix && yarn test-all -u",
+    "coverage": "yarn test-all --coverage",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "browserslist": {
     "production": [
@@ -35,5 +37,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "prettier": "^1.19.1"
   }
 }
