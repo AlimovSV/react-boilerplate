@@ -1,7 +1,13 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import HomePage from '../HomePage';
 import I18nProvider from '../../../i18n';
+
+/**
+ * Under test
+ */
+import HomePage from '../HomePage';
+
+jest.mock('../../../components/LoginStatus', () => 'div');
 
 type Props = React.ComponentProps<typeof HomePage>;
 

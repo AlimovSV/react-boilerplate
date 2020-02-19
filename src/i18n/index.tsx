@@ -1,3 +1,5 @@
+// https://github.com/formatjs/react-intl/blob/master/docs/README.md
+
 import React from 'react';
 import { IntlProvider, IntlConfig } from 'react-intl';
 
