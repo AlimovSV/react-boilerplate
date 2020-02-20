@@ -3,9 +3,11 @@
 
 import { createStore, combineReducers, applyMiddleware, Middleware } from 'redux';
 import { createLogger } from 'redux-logger';
+import { persistReducer } from 'redux-persist';
 
 // https://redux-saga.js.org/docs/api/
 import createSagaMiddleware from 'redux-saga';
+import storage from 'redux-persist/lib/storage/session';
 
 import { systemReducer } from './system/reducers';
 
@@ -29,8 +31,18 @@ if (process.env.NODE_ENV === 'development') {
 
 export type RootState = ReturnType<typeof rootReducer>;
 
+const persistConfig = {
+  // https://github.com/rt2zz/redux-persist/blob/master/src/types.js#L13-L27
+  key: 'root',
+  storage,
+  version: 0,
+  whitelist: [],
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
 export default function configureStore() {
-  const store = createStore(rootReducer, applyMiddleware(...middlewares));
+  const store = createStore(persistedReducer, applyMiddleware(...middlewares));
 
   sagaMiddleware.run(rootSaga);
 
