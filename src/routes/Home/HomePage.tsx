@@ -3,7 +3,7 @@ import { FormattedMessage, FormattedDate, FormattedNumber, defineMessages } from
 
 import LoginStatus from '../../components/LoginStatus';
 import logo from './logo.svg';
-import './HomePage.css';
+import './HomePage.scss';
 
 const HomePage = () => (
   <div className="Home">
