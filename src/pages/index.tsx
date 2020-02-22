@@ -4,11 +4,11 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import HomeRoutes from './Home';
+import Home from './Home';
 
 const Routes = () => (
   <Switch>
-    <Route exact={true} path="/" component={HomeRoutes} />
+    <Route exact={true} path="/" component={Home} />
   </Switch>
 );
 

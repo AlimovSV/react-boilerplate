@@ -7,7 +7,7 @@ import { createBrowserHistory } from 'history';
 import { persistStore } from 'redux-persist';
 
 import I18nProvider from './i18n';
-import Routes from './routes';
+import Pages from './pages';
 import configureStore from './store';
 
 const history = createBrowserHistory();
@@ -18,7 +18,7 @@ const App = () => (
     <PersistGate persistor={persistStore(store as any)}>
       <Router history={history}>
         <I18nProvider>
-          <Routes />
+          <Pages />
         </I18nProvider>
       </Router>
     </PersistGate>

@@ -2,13 +2,13 @@ import React from 'react';
 import { FormattedMessage, FormattedDate, FormattedNumber, defineMessages } from 'react-intl';
 
 import LoginStatus from '../../components/LoginStatus';
-import logo from './logo.svg';
+import { ReactComponent as Logo } from '../../assets/logo.svg';
 import './HomePage.scss';
 
 const HomePage = () => (
   <div className="Home">
     <header className="Home-header">
-      <img src={logo} className="Home-logo" alt="logo" />
+      <Logo className="Home-logo" />
       <LoginStatus />
       <p>
         <FormattedMessage {...messages.text} values={{ link: <code>src/Home.tsx</code> }} />
