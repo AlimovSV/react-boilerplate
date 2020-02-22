@@ -19,6 +19,8 @@ jobs:
     - name: install and test
       run: |
         yarn install
-        yarn validate
+        yarn tsc
+        yarn lint
+        yarn test-all
       env:
         CI: true
