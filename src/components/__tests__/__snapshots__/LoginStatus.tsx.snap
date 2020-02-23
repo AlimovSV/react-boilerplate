@@ -1,17 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render as anonymous 1`] = `
-<div>
-  <button>
+<section>
+  Click to log in
+   | 
+  <button
+    class="button"
+  >
     Login
   </button>
-</div>
+</section>
 `;
 
 exports[`should render as authenticated 1`] = `
-<div>
-  <button>
+<section>
+  Logged in as 
+   | 
+  <button
+    class="button"
+  >
     Logout
   </button>
-</div>
+</section>
 `;

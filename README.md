@@ -1,44 +1,80 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React Boilerplate
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) using typescript template.
+```
+yarn create react-app my-app --template typescript
+```
 
-## Available Scripts
+## Additional Setup
+Added `eslint + prettier` with the following formatting rules override:
+```
+{
+  "semi": true,
+  "tabWidth": 2,
+  "useTabs": false,
+  "printWidth": 100,
+  "singleQuote": true,
+  "bracketSpacing": true,
+  "trailingComma": "all",
+  "jsxBracketSameLine": false
+}
+```
 
+## Console Scripts
 In the project directory, you can run:
 
 ### `yarn start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Runs the app in the development mode.
 
 ### `yarn build`
+Builds the app for production to the `build` folder.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `yarn test`
+Launches the test runner in the interactive watch mode.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### `yarn test-all`
+Launches the test runner with `--watchAll=false` option.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `yarn lint`
+Runs type checking and linter.
 
-### `yarn eject`
+### `yarn validate`
+Runs type checking, linter, and tests. This will also perform code formatting, fix linter issues, and will update test snapshots. If there are updated snapshots, double check to make sure the changes are expected.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### `yarn coverage`
+Runs all tests and shows test coverage.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Tools and Dependencies
+- `react-intl`
+- `react-router-dom`
+- `redux, redux-logger, react-redux`
+- `redux-persist`
+- `redux-saga`
+- `node-sass`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Folder Structure
+```
+public
+src
+ ├─ assets
+ ├─ components
+ │   └─ ComponentName.tsx
+ ├─ errors
+ ├─ fixtures
+ ├─ i18n
+ ├─ pages
+ │   ├─ PageName
+ │   │   ├─ PageName.module.scss
+ │   │   ├─ PageName.tsx
+ │   │   └─ index.tsx
+ │   └─ index.tsx
+ ├─ sagas
+ ├─ services
+ ├─ store
+ ├─ styles
+ │   ├─ _partial.scss
+ │   ├─ global.module.scss
+ │   └─ index.scss
+ ├─ types
+ ├─ App.tsx
+ └─ index.tsx
+```

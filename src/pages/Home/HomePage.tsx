@@ -3,34 +3,58 @@ import { FormattedMessage, FormattedDate, FormattedNumber, defineMessages } from
 
 import LoginStatus from '../../components/LoginStatus';
 import { ReactComponent as Logo } from '../../assets/logo.svg';
-import './HomePage.scss';
+import styles from './HomePage.module.scss';
 
 const HomePage = () => (
-  <div className="Home">
-    <header className="Home-header">
-      <Logo className="Home-logo" />
-      <LoginStatus />
+  <main className={styles.container}>
+    <header className={styles.header}>
+      <Logo className={styles.logo} />
+      <div>
+        <p>
+          <FormattedMessage {...messages.text} />
+        </p>
+        <p>
+          <FormattedMessage
+            {...messages.date}
+            values={{ date: <FormattedDate value={Date.now()} format="long" /> }}
+          />
+          <br />
+          <FormattedMessage
+            {...messages.currency}
+            values={{ currency: <FormattedNumber value={123.45} format="USD" /> }}
+          />
+        </p>
+      </div>
+      <LoginStatus fontSize={20} />
       <p>
-        <FormattedMessage {...messages.text} values={{ link: <code>src/Home.tsx</code> }} />
-        <br />
-        <FormattedDate value={Date.now()} format="long" />
-        <br />
-        <FormattedNumber value={123} format="USD" />
+        <a
+          className={styles.link}
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FormattedMessage {...messages.link} />
+        </a>
       </p>
-      <a className="Home-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-        <FormattedMessage {...messages.link} />
-      </a>
     </header>
-  </div>
+  </main>
 );
 
 const messages = defineMessages({
   text: {
-    id: 'Home/text',
-    defaultMessage: 'Edit {link} and save to reload.',
+    id: 'pages/Home/HomePage/text',
+    defaultMessage: 'Welcome to React boilerplate!',
+  },
+  date: {
+    id: 'pages/Home/HomePage/date',
+    defaultMessage: 'Date formatting: {date}',
+  },
+  currency: {
+    id: 'pages/Home/HomePage/currency',
+    defaultMessage: 'Currency formatting: {currency}',
   },
   link: {
-    id: 'Home/link',
+    id: 'pages/Home/HomePage/link',
     defaultMessage: 'Learn React',
   },
 });

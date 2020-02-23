@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
+import I18nProvider from '../../i18n';
 
 jest.doMock('redux', () => ({
   bindActionCreators: jest.fn(actionCreators => actionCreators),
@@ -25,7 +26,9 @@ const { LoginStatus } = require('../LoginStatus');
 type Props = React.ComponentProps<typeof LoginStatus>;
 
 const createElement = (props: Partial<Props>) => (
-  <LoginStatus loggedIn={true} login={jest.fn()} logout={jest.fn()} {...props} />
+  <I18nProvider>
+    <LoginStatus loggedIn={true} login={jest.fn()} logout={jest.fn()} {...props} />
+  </I18nProvider>
 );
 
 const renderElement = (props: Partial<Props>) => render(createElement(props));
