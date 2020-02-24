@@ -43,6 +43,9 @@ Runs type checking, linter, and tests. This will also perform code formatting, f
 ### `yarn coverage`
 Runs all tests and shows test coverage.
 
+### `yarn analyze`
+Runs production bundle size analyzer.
+
 ## Tools and Dependencies
 - `react-intl`
 - `react-router-dom`
