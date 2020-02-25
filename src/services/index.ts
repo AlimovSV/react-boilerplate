@@ -1,3 +1,4 @@
+import config from '../config';
 import IUsersAPI from './users/IUsersAPI';
 
 let UsersAPI;
@@ -10,6 +11,4 @@ if (process.env.NODE_ENV === 'production' || process.env.REACT_APP_ENV) {
   ({ default: UsersAPI } = require('./users/__mocks__/UsersAPI'));
 }
 
-const baseUrl = 'https://jsonplaceholder.typicode.com/';
-
-export const usersAPI: IUsersAPI = new UsersAPI(baseUrl);
+export const usersAPI: IUsersAPI = new UsersAPI(config.services.baseURL);
